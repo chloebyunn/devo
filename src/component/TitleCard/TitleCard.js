@@ -7,8 +7,11 @@ class TitleCard extends Component {
         this.state = {
         }
     }
+    
+
 
     render() {
+        
         return (
             <div className="titlecard-container">
                 <input className="title-field" type="text" placeholder="Enter the name of this space" />                
