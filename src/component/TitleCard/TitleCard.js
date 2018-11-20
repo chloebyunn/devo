@@ -14,10 +14,10 @@ class TitleCard extends Component {
         
         return (
             <div className="titlecard-container">
-                <input className="title-field" type="text" placeholder="Enter the name of this space" />                
+                <input className="title-field" type="text" placeholder="Name this space" />                
                 <div className="name-fields">
                     <p className="small-field">By:  </p>
-                    <input className="small-field" type="text" placeholder="Your Name" />
+                    <input className="small-field" type="text" placeholder="Enter your name" />
                 </div>
             </div>
 

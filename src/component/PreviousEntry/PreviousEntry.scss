@@ -1,8 +1,25 @@
 .previous-container {
-    width: 30%;
-    max-width: 460px;
+    max-width: 420px;
     height: 100px;
     border: blue 1px solid;
+    display: flex;
+    flex-direction: row;
+}
+
+.date-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 5px 5px 8px;
+    width: 85px;
+
+}
+
+.content-section {
+    flex: 4;
+    margin-top: 5px;
+    padding: 5px 5px 5px 0px;
 }
 
 .month {
@@ -10,9 +27,21 @@
 }
 
 .day {
+    font-size: 16px;
+}
+
+.dd {
+    margin-top: 5px;
     font-size: 35px;
 }
 
-.day {
-    font-size: 35px;
+.entry-title {
+    font-size: 18px;
+    padding: 5px 0;
+
+}
+
+.entry-content-preview {
+    padding: 5px 0;
+    font-size: 10px;
 }

@@ -13,17 +13,21 @@ class PreviousEntry extends Component {
     render() {
         return (
             <div className="previous-container">
-                <div className="month">{this.props.month}</div>
-                <div className="day">{this.props.day}</div>
-                <div className="dd">{this.props.dd}</div>
-
+                <div className="date-section">   
+                    <div className="day">{this.props.day}</div>
+                    <div className="dd">{this.props.dd}</div>
+                </div>
+                <div className="content-section">
+                    <div className="entry-title">Test title</div>
+                    <div className="entry-content-preview">Test content</div>
+                </div>
             </div>
         );
     }
 }
 
 PreviousEntry.propTypes = {
-    month: PropTypes.string.isRequired,
+    month: PropTypes.string,
     day: PropTypes.string.isRequired,
     dd: PropTypes.number.isRequired,
 }

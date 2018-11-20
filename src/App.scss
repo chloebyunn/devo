@@ -1,0 +1,13 @@
+.App {
+  display: flex;
+}
+
+.sidebar{
+  flex: 1
+}
+
+.main-space {
+ flex: 2;
+ display: flex;
+ flex-direction: column;
+}

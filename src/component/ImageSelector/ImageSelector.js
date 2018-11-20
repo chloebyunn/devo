@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './Card.scss'
+import './ImageSelector.scss'
 
-class Card extends Component {
+class ImageSelector extends Component {
     constructor() {
         super();
         this.state ={
@@ -11,11 +11,11 @@ class Card extends Component {
 
     render(){
         return (
-            <div>
+            <div className="image-selector">
 
             </div>
         );
     }
 }
 
-export default Card;
+export default ImageSelector;
