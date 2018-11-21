@@ -12,75 +12,57 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      previousEntries: [],
     };
   }
-  ///////////////////////////////////////
 
+  getNumDay() {
+    return new Date().getDate();
+  }
 
-  // componentDidMount() {
-  //   window.addEventListener('scroll', this.onScroll, false);
-  // }
-  //
-  // componentWillUnmount() {
-  //   window.removeEventListener('scroll', this.onScroll, false);
-  // }
-  //
-  // onScroll = () => {
-  //   if (
-  //     (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500) &&
-  //     this.props.list.length
-  //   ) {
-  //     this.props.onPaginatedSearch();
-  //   }
-  // }
-
-
-  //////////////////////////////////////
-
-  getDate() {
-    const monthNames = ["January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"
-    ];
+  getWeekday() {
+    let weekday = new Date().getDay();
     const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Satday"]
+    return dayNames[weekday];
+  }
 
-    let getDate = new Date();
-    let day = getDate.getDay();
-    let dd = getDate.getDate();
-    let mm = getDate.getMonth(); //January is 0!
-    let yyyy = getDate.getFullYear();
-    if(dd<10) {
-        dd = '0' + dd
-    }
-    return [dayNames[day], monthNames[mm], dd, yyyy];
-};
+  getCurrentMonth() { 
+    let mm = new Date().getMonth();
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"];
+  
+    return monthNames[mm];
+  }
+
+  getCurrentYear() {
+    return new Date().getFullYear();
+  }
+
+
   render() {
-    const previousEntries = this.getDate().map(date => {
-      let today = date[0];
-      let tomonth = date[1];
-      let todd = date[2];
-      let toyy = date[3];
-      // <PreviousEntry day={today} month={tomonth} dd={todd} />
-      let yesterday = new Date() - 1;
-      console.log(yesterday);
 
-
-    })
+    const noPreviousEntriesMessage = (
+      <p>You have no previous entries! <br />
+         Click the New Entry Button to get started :) </p>
+    )
+    
+    
     return (
       <div className="App">
-        <div className="sidebar">
-          <TitleCard />
-          <PreviousEntry day={this.getDate()[0]} month={this.getDate()[1]} dd={this.getDate()[2]} />
-          <PreviousEntry day="Sunday" month="November" dd="18" />
-          <PreviousEntry day="Saturday" month="November" dd="17" />
-          <PreviousEntry day="Friday" month="November" dd="16" />
-          <PreviousEntry day="Thursday" month="November" dd="15" />
-          <PreviousEntry day="Wednesday" month="November" dd="14" />
-        </div>
-        <div className="main-space">
-          <ImageSelector className="image-selector" />
-          <NewEntry className="new-entry" />
-        </div>
+        <div className="App-container">
+          <div className="sidebar">
+            <TitleCard />
+            <div className="entries-container">
+              {this.state.previousEntries.length === 0 && noPreviousEntriesMessage}
 
+            </div>
+
+          </div>
+          <div className="main-space">
+            <ImageSelector className="image-selector" /> 
+            <NewEntry className="new-entry" />
+          </div>
+        </div>
       </div>
     );
   }

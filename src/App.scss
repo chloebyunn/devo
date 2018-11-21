@@ -1,5 +1,14 @@
 .App {
   display: flex;
+  height: 100%;
+
+}
+
+.App-container {
+  flex: 1;
+  display: flex;
+  height: 100%;
+
 }
 
 .sidebar{
