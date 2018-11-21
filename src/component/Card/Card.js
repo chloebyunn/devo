@@ -11,7 +11,7 @@ class Card extends Component {
 
     render(){
         return (
-            <div>
+            <div className="card-container">
 
             </div>
         );

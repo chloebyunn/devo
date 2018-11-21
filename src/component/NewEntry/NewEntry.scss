@@ -1,4 +1,17 @@
 .new-entry {
     flex: 3.5;
     border: green 1px solid;
+    display: flex;
+    flex-direction: row;
+}
+
+.devotional-area {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.right-card-area {
+  border: orange 1px solid;
+  flex: 1.5;
 }

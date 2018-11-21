@@ -15,22 +15,26 @@ class App extends Component {
     };
   }
   ///////////////////////////////////////
-  componentDidMount() {
-    window.addEventListener('scroll', this.onScroll, false);
-  }
 
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.onScroll, false);
-  }
 
-  onScroll = () => {
-    if (
-      (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500) &&
-      this.props.list.length
-    ) {
-      this.props.onPaginatedSearch();
-    }
-  }
+  // componentDidMount() {
+  //   window.addEventListener('scroll', this.onScroll, false);
+  // }
+  //
+  // componentWillUnmount() {
+  //   window.removeEventListener('scroll', this.onScroll, false);
+  // }
+  //
+  // onScroll = () => {
+  //   if (
+  //     (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500) &&
+  //     this.props.list.length
+  //   ) {
+  //     this.props.onPaginatedSearch();
+  //   }
+  // }
+
+
   //////////////////////////////////////
 
   getDate() {
@@ -58,13 +62,13 @@ class App extends Component {
       // <PreviousEntry day={today} month={tomonth} dd={todd} />
       let yesterday = new Date() - 1;
       console.log(yesterday);
-    
+
 
     })
     return (
       <div className="App">
         <div className="sidebar">
-          <TitleCard />    
+          <TitleCard />
           <PreviousEntry day={this.getDate()[0]} month={this.getDate()[1]} dd={this.getDate()[2]} />
           <PreviousEntry day="Sunday" month="November" dd="18" />
           <PreviousEntry day="Saturday" month="November" dd="17" />
