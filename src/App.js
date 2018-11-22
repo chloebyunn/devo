@@ -42,27 +42,24 @@ class App extends Component {
   render() {
 
     const noPreviousEntriesMessage = (
-      <p>You have no previous entries! <br />
+      <p className="no-entries-message">You have no previous entries! <br />
          Click the New Entry Button to get started :) </p>
     )
     
     
     return (
       <div className="App">
-        <div className="App-container">
-          <div className="sidebar">
-            <TitleCard />
-            <div className="entries-container">
-              {this.state.previousEntries.length === 0 && noPreviousEntriesMessage}
-
-            </div>
-
-          </div>
-          <div className="main-space">
-            <ImageSelector className="image-selector" /> 
-            <NewEntry className="new-entry" />
+        <div className="sidebar">
+          <TitleCard />
+          <div className="entries-container">
+            {this.state.previousEntries.length === 0 && noPreviousEntriesMessage}
+            {/* <PreviousEntry /> */}
           </div>
         </div>
+        <div className="main-space">
+          <ImageSelector className="image-selector" /> 
+          <NewEntry className="new-entry" />
+      </div>
       </div>
     );
   }
