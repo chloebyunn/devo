@@ -1,6 +1,6 @@
 .titlecard-container {
     position: relative;
-    flex: 2;
+    flex: 4;
     height: 175px;
     border: blue 1px solid;
     display: flex;
@@ -22,14 +22,13 @@
 }
 
 .name-field {
-    margin-top: 10px;
     width: 50%;
     text-align: center;
     font-size: 15px;
 
     &:hover {
-        outline: none; 
-     }
+       outline: none; 
+    }
 }
 
 .new-entry-button {
