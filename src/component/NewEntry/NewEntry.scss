@@ -3,6 +3,7 @@
   border: green 1px solid;
   display: flex;
   flex-direction: row;
+
 }
 
 .devotional-area {
@@ -42,3 +43,47 @@
     outline: none;
   }
 }
+
+.title {
+  border: none;
+  font-size: 22px;
+  text-decoration: underline;
+  padding: 30px 10px 5px 15px;
+  color: #454545;
+
+  &:hover {
+    outline: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.reflected-passages {
+  border: none;
+  font-size: 15px;
+  padding: 5px 10px 10px 15px;
+
+  &:hover {
+    outline: none;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.content {
+  border: none;
+  font-size: 13px;
+  padding: 30px 10px 10px 15px;
+  height: 100%;
+
+  &:hover {
+    outline: none;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
