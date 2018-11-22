@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './TitleCard.scss';
-import Button from '../../component/Button/Button';
+import PropTypes from 'prop-types';
 
 class TitleCard extends Component {
     constructor() {
@@ -16,15 +16,16 @@ class TitleCard extends Component {
         return (
             <div className="titlecard-container">
                 <input className="title-field" type="text" placeholder="Name this space" />
-                <div className="name-fields">
-                    <p className="small-field">By:  </p>
-                    <input className="small-field" type="text" placeholder="Enter your name" />
-                </div>
-                <Button />
+                <input className="name-field" type="text" placeholder="Your name" />
+                <button className="new-entry-button" onClick={this.props.addEntry}> New Entry </button>
             </div>
 
         );
     }
+}
+
+TitleCard.propTypes = {
+    addEntry: PropTypes.func,
 }
 
 export default TitleCard;

@@ -1,32 +1,45 @@
 .titlecard-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    // max-width: 420px;
+    position: relative;
+    flex: 2;
     height: 175px;
     border: blue 1px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
 }
 
 .title-field {
-    // margin-top: 35px;
-    border-style: none;
+    width: 70%;
     font-size: 32px;
     text-align: center;
-    outline: 0;
+    margin-top: 50px;
+
+    &:hover {
+       outline: none; 
+    }
 }
 
-.name-fields {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;//x
-    align-items: center;
-}
-
-.small-field {
-    border-style: none;
+.name-field {
+    margin-top: 10px;
+    width: 50%;
+    text-align: center;
     font-size: 15px;
-    // width: 20%;
-    // margin: 5px 0 0 0;
-    // width: inherit;
+
+    &:hover {
+        outline: none; 
+     }
+}
+
+.new-entry-button {
+    position: absolute;
+    background-color: #06D6A0;
+    border: none;
+    padding: 10px 32px;
+    border-radius: 30px 30px 30px 30px;
+    font-size: 14px;
+    margin: 10px;
+    bottom: 0;
+    right: 0;
 }

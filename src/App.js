@@ -16,6 +16,23 @@ class App extends Component {
     };
   }
 
+  addEntry() {
+    this.setState({
+      previousEntries: [... {
+        date: '',
+        title: '',
+        passages: '',
+        content: '',
+      }]
+    })
+    // this.state.previousEntries.push({
+    //   date: '',
+    //   title: '',
+    //   passages: '',
+    //   content: '',
+    // })
+  }
+
   getNumDay() {
     return new Date().getDate();
   }
@@ -42,19 +59,19 @@ class App extends Component {
   render() {
 
     const noPreviousEntriesMessage = (
-      <p>You have no previous entries! <br />
-         Click the New Entry Button to get started :) </p>
+      <div className="no-entries-message">
+        <p>You have no previous entries! </p>
+        <p> Click the New Entry Button to get started :) </p>
+      </div>
     )
     
     
     return (
-      <div className="App">
-        <div className="App-container">
+        <div className="App">
           <div className="sidebar">
-            <TitleCard />
+            <TitleCard addEntry={this.addEntry} />
             <div className="entries-container">
               {this.state.previousEntries.length === 0 && noPreviousEntriesMessage}
-
             </div>
 
           </div>
@@ -63,7 +80,6 @@ class App extends Component {
             <NewEntry className="new-entry" />
           </div>
         </div>
-      </div>
     );
   }
 }

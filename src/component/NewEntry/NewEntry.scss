@@ -1,17 +1,44 @@
-.new-entry {
-    flex: 3.5;
-    border: green 1px solid;
-    display: flex;
-    flex-direction: row;
+.new-entry {  
+  flex: 7;
+  border: green 1px solid;
+  display: flex;
+  flex-direction: row;
 }
 
 .devotional-area {
-  flex: 3;
+  flex: 5;
   display: flex;
   flex-direction: column;
+  margin: 50px 0 0 40px;
 }
 
 .right-card-area {
   border: orange 1px solid;
-  flex: 1.5;
+  flex: 2;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 5px;
+
+  &:hover {
+    outline: none;
+  }
+}
+
+.reflected-passages {
+  font-size: 14px;
+  margin-bottom: 60px;
+
+  &:hover {
+    outline: none;
+  }
+}
+
+.content {
+  font-size: 12px;
+
+  &:hover {
+    outline: none;
+  }
 }
