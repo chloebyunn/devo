@@ -1,6 +1,5 @@
 .new-entry {  
   flex: 7;
-  border: green 1px solid;
   display: flex;
   flex-direction: row;
 
@@ -10,11 +9,10 @@
   flex: 5;
   display: flex;
   flex-direction: column;
-  margin: 50px 0 0 40px;
+  margin: 20px 0 0 40px;
 }
 
 .right-card-area {
-  border: orange 1px solid;
   flex: 2;
 }
 
@@ -29,7 +27,7 @@
 
 .reflected-passages {
   font-size: 14px;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 
   &:hover {
     outline: none;
@@ -46,7 +44,7 @@
 
 .title {
   border: none;
-  font-size: 22px;
+  font-size: 20px;
   text-decoration: underline;
   padding: 30px 10px 5px 15px;
   color: #454545;
@@ -62,7 +60,7 @@
 
 .reflected-passages {
   border: none;
-  font-size: 15px;
+  font-size: 14px;
   padding: 5px 10px 10px 15px;
 
   &:hover {
@@ -75,7 +73,7 @@
 
 .content {
   border: none;
-  font-size: 13px;
+  font-size: 12px;
   padding: 30px 10px 10px 15px;
   height: 100%;
 

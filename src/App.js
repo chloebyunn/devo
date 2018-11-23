@@ -5,8 +5,8 @@ import TitleCard from './component/TitleCard/TitleCard';
 import PreviousEntry from './component/PreviousEntry/PreviousEntry';
 import NewEntry from './component/NewEntry/NewEntry';
 import ImageSelector from './component/ImageSelector/ImageSelector';
-import Tags from './component/Tags/Tags';
-import Card from './component/Card/Card';
+// import Tags from './component/Tags/Tags';
+// import Card from './component/Card/Card';
 
 class App extends Component {
   constructor() {
@@ -14,23 +14,20 @@ class App extends Component {
     this.state = {
       previousEntries: [],
     };
+    this.addEntry = this.addEntry.bind(this);
   }
 
   addEntry() {
-    this.setState({
-      previousEntries: [... {
-        date: '',
-        title: '',
-        passages: '',
-        content: '',
-      }]
+    this.state.previousEntries.push({
+      numday: this.getNumDay(),
+      weekday: this.getWeekday(),
+      month: this.getCurrentMonth(),
+      year: this.getCurrentYear(),
+      title: '',
+      passages: '',
+      tags: '', 
+      content: '',
     })
-    // this.state.previousEntries.push({
-    //   date: '',
-    //   title: '',
-    //   passages: '',
-    //   content: '',
-    // })
   }
 
   getNumDay() {
@@ -55,8 +52,28 @@ class App extends Component {
     return new Date().getFullYear();
   }
 
-
   render() {
+
+    // const messages = this.props.messages.messages.map((message, i) => {
+    //   return (
+    //     <ChatBubble agentPicture={stock_photo} botPicture={logo} key={i}
+    //       playMessage={this.playDecodedMessage} message={message}
+    //       loading={false}>
+    //       {message.body}
+    //     </ChatBubble>
+    //   );
+    // });
+
+
+
+    const previousMessagesList = this.state.previousEntries.map((element) => {
+      return (
+        <PreviousEntry numday={element.numday} weekday={element.weekday} month={element.month} year={element.year}
+        title={element.title} passages={element.passages} 
+        content={element.content} tags={element.tags} />
+        );
+      }
+    ); 
 
     const noPreviousEntriesMessage = (
       <div className="no-entries-message">
@@ -65,15 +82,14 @@ class App extends Component {
       </div>
     )
     
-    
     return (
         <div className="App">
           <div className="sidebar">
             <TitleCard addEntry={this.addEntry} />
             <div className="entries-container">
-              {this.state.previousEntries.length === 0 && noPreviousEntriesMessage}
+              {this.state.previousEntries.length === 0 ? noPreviousEntriesMessage : previousMessagesList}
+              {previousMessagesList}
             </div>
-
           </div>
           <div className="main-space">
             <ImageSelector className="image-selector" /> 
