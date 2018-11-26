@@ -1,6 +1,7 @@
 .image-selector {
     flex: 4;
-    border: red 1px solid;
-    align-items: stretch;
-    max-height: 374px;
+    max-height: 350px;
+    max-width: 100%;
+    background-size: cover;
+    clip-path: inset(0px 0px 0px 0px);
 }

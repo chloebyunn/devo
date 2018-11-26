@@ -1,7 +1,7 @@
 .titlecard-container {
     position: relative;
-    flex: 4;
-    height: 175px;
+    max-height: 200px;
+    min-height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
