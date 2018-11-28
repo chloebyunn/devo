@@ -30,10 +30,11 @@ class ImageSelector extends Component {
             yellow_elephant, 
         ];
 
-        const number = Math.floor(Math.random() * (images_array.length+1));
+        const number = Math.floor(Math.random() * (images_array.length));
         return (
             <div className="image-selector">
                 <img src={images_array[number]} alt="blue orange venice" />
+                <textarea className="image-caption" type="text" placeholder="One memorable thought for today..." />
             </div>
         );
     }

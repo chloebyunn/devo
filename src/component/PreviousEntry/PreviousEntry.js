@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './PreviousEntry.scss';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'; 
 
 class PreviousEntry extends Component { 
 

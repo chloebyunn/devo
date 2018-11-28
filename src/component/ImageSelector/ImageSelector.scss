@@ -1,7 +1,43 @@
 .image-selector {
-    flex: 4;
     max-height: 350px;
-    max-width: 100%;
-    background-size: cover;
+    max-width: calc(100%-375px);
+    min-width: calc(100%-375px);
     clip-path: inset(0px 0px 0px 0px);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+
+
+    .image-selector img {
+        // max-width: 100%;
+        // min-width: 100%;
+
+        // object-position: 50% 50%;
+
+    }
+}
+
+.image-caption {
+    position: absolute;
+    color: #fff;
+    font-size: 35px;
+    // text-align: left;
+    background-color: transparent;
+    border: none;
+    width: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    
+    &::placeholder {
+        color: #ccc;
+        opacity: 1;
+        font-weight: normal;
+        text-align: center;
+    }
+
+    &:hover {
+        outline: none;
+    }
 }

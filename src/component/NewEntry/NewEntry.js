@@ -22,7 +22,9 @@ class NewEntry extends Component {
                 <textarea className="content" placeholder="Start your entry here..."/>
               </div>
               <div className="right-card-area">
-                <Card />
+                <Card title="Write down your short prayer here" height={275}/>
+                <Card title="Actions points for today" height={125}/>
+
               </div>
 
             </div>

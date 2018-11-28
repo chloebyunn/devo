@@ -11,8 +11,7 @@ class Tags extends Component {
 
     render(){
         return (
-            <div>
-
+            <div tag-container>
             </div>
         );
     }
