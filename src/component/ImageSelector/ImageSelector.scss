@@ -10,12 +10,32 @@
 
 
     .image-selector img {
+
+        background-size: cover;
+    // width: 100%;
         // max-width: 100%;
         // min-width: 100%;
 
         // object-position: 50% 50%;
 
     }
+}
+
+h3{
+    flex-grow: 1;
+}
+
+.more-padding-right {
+    padding-right: 10px;
+
+}
+.card-header {
+    display: flex;
+}
+
+.card-icons {
+    height: 13px;
+    margin: 27px 5px 5px 5px;
 }
 
 .image-caption {

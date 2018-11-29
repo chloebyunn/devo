@@ -34,8 +34,8 @@ class Card extends Component {
             <div className="card-container" style={{backgroundColor:colours[number], height:this.props.height+"px"}}>
                 <div className="card-header">
                     <h3>{this.props.title}</h3>
-                    <img src={deleteicon} alt="X" />
-                    <img src={colorwheel} alt="More colours" />
+                    <img className="card-icons" src={colorwheel} alt="More colours" />
+                    <img className="card-icons more-padding-right" src={deleteicon} alt="X" />
                 </div>
                 <textarea className="card-content" />
             </div>

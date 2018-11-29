@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './PreviousEntry.scss';
 import PropTypes from 'prop-types'; 
 
+import share from '../../icons/share.png';
+import deleteicon from '../../icons/deleteicon.png';
+
 class PreviousEntry extends Component { 
 
     getNumDay() {
@@ -30,12 +33,16 @@ class PreviousEntry extends Component {
         return (
             <div className="previous-container">
                 <div className="date-section">   
-                    <div className="weekday">{this.getWeekday()}</div>
-                    <div className="numday">{this.getNumDay()}</div>
+                    <div className="weekday">{ this.getWeekday() }</div>
+                    <div className="numday">{ this.getNumDay() }</div>
                 </div>
                 <div className="content-section">
                     <div className="entry-title">Test title</div>
                     <div className="entry-content-preview">Test content</div>
+                </div>
+                <div className="hover-menu-items">
+                    <img className="menu-icon" src={share} alt="share" />
+                    <img className="menu-icon" src={deleteicon} alt="X" />
                 </div>
             </div>
         );

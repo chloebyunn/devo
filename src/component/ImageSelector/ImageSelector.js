@@ -8,6 +8,7 @@ import grey_trees from '../../images/grey_trees.png';
 import orange_blue_street_to_sky from '../../images/orange_blue_street_to_sky.png';
 import purple_nightsky from '../../images/purple_nightsky.png';
 import red_sunset from '../../images/red_sunset.png';
+import sunset_sky from '../../images/sunset_sky.jpeg';
 import yellow_elephant from '../../images/yellow_elephant.png';
 
 class ImageSelector extends Component {
@@ -27,6 +28,7 @@ class ImageSelector extends Component {
             orange_blue_street_to_sky, 
             purple_nightsky, 
             red_sunset, 
+            sunset_sky,
             yellow_elephant, 
         ];
 

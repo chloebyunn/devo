@@ -13,6 +13,7 @@ class App extends Component {
     super();
     this.state = {
       previousEntries: [],
+      selectedEntry:'',
     };
     this.addEntry = this.addEntry.bind(this);
   }
@@ -25,6 +26,14 @@ class App extends Component {
     });
     // localStorage.setItem(i, previousEntry);
   }
+
+  // onClick() {
+  //   this.setState({
+  //     ...,
+  //     selectedEntry: '',
+  //   })
+  //   backgroundColor:'#EFFFFB';
+  // }
 
   render() {
 

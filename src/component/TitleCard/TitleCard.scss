@@ -6,7 +6,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-
+    position: relative;
 }
 
 .title-field {
@@ -38,6 +38,15 @@
     &:focus {
         outline: none;
     }
+}
+
+.calendar-icon {
+    width: 22px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 150px;
+    padding-bottom: 15px;
 }
 
 .new-entry-button {
