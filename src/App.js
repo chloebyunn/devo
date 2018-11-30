@@ -27,14 +27,6 @@ class App extends Component {
     // localStorage.setItem(i, previousEntry);
   }
 
-  // onClick() {
-  //   this.setState({
-  //     ...,
-  //     selectedEntry: '',
-  //   })
-  //   backgroundColor:'#EFFFFB';
-  // }
-
   render() {
 
     const previousMessagesList = this.state.previousEntries.map((element) => {

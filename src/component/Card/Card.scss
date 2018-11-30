@@ -3,7 +3,15 @@
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    position: relative;
+}
 
+.color-picker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 50px;
+    z-index: 5;
 }
 
 h3 {
@@ -26,3 +34,16 @@ h3 {
     resize: vertical;
     background-color: transparent;
 }
+
+.popover {
+    position: absolute;
+    z-index: 2;
+}
+
+.cover {
+    position: fixed;
+    top: 0;
+    right: 0;
+    // bottom: 0;
+    // left: 0;
+  }

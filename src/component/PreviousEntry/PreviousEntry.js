@@ -47,7 +47,7 @@ class PreviousEntry extends Component {
                     <div className="numday">{ this.getNumDay() }</div>
                 </div>
                 <div className="content-section">
-                    <div className="entry-title">{entry.title}</div>
+                    <div className="entry-title">Test title</div> {/* entry.title */}
                     <div className="entry-content-preview">Test content</div>
                 </div>
                 <div className="hover-menu-items">

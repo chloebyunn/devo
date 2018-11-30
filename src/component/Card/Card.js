@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'; 
+import { SwatchesPicker } from 'react-color';
 import './Card.scss';
 
 import colorwheel from '../../icons/colorwheel.png';
@@ -8,19 +9,33 @@ import deleteicon from '../../icons/deleteicon.png';
 
 
 class Card extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state ={
+            background: '#fff',
+            openColorPicker: false,
         };
+        this.handleOpenClick = this.handleOpenClick.bind(this);
     }
 
-    deleteCard() {
-
+    handleOpenClick() {
+        this.setState({
+            openColorPicker: !this.state.openColorPicker,
+        });
     }
 
-    chooseColor() {
-
+    handleClose = () => {
+        this.setState({
+            openColorPicker: false,
+        })
+        on
     }
+
+    handleColorChange(color, event) {
+        this.setState({
+            background: color.hex,
+        });
+    };
 
     render(){
         const colours = [
@@ -34,10 +49,22 @@ class Card extends Component {
             <div className="card-container" style={{backgroundColor:colours[number], height:this.props.height+"px"}}>
                 <div className="card-header">
                     <h3>{this.props.title}</h3>
-                    <img className="card-icons" src={colorwheel} alt="More colours" />
+                    <div>
+                        <img className="card-icons" src={colorwheel} alt="More colours" onClick={ this.handleOpenClick }/>
+                        {this.state.openColorPicker && 
+                        <div className="popover">
+                            <div className="cover" onClick={this.handleClose}/>
+                            <SwatchesPicker />
+                        </div>}
+                    </div>
                     <img className="card-icons more-padding-right" src={deleteicon} alt="X" />
                 </div>
                 <textarea className="card-content" />
+
+
+               
+
+
             </div>
         );
     }
@@ -48,3 +75,6 @@ Card.propTypes = {
 }
 
 export default Card;
+
+
+
