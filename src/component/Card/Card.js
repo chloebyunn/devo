@@ -28,7 +28,6 @@ class Card extends Component {
         this.setState({
             openColorPicker: false,
         })
-        on
     }
 
     handleColorChange(color, event) {
@@ -60,11 +59,6 @@ class Card extends Component {
                     <img className="card-icons more-padding-right" src={deleteicon} alt="X" />
                 </div>
                 <textarea className="card-content" />
-
-
-               
-
-
             </div>
         );
     }

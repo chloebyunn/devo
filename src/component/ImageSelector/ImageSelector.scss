@@ -1,41 +1,18 @@
 .image-selector {
-    max-height: 350px;
-    max-width: calc(100%-375px);
-    min-width: calc(100%-375px);
     clip-path: inset(0px 0px 0px 0px);
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    object-fit: cover;
-
+    background-color: #aaa;
+    background-size: 100%;
 
     .image-selector img {
-
-        background-size: cover;
-    // width: 100%;
-        // max-width: 100%;
-        // min-width: 100%;
-
-        // object-position: 50% 50%;
-
+        width: 100%;
     }
 }
 
-h3{
+h3 { 
     flex-grow: 1;
-}
-
-.more-padding-right {
-    padding-right: 10px;
-
-}
-.card-header {
-    display: flex;
-}
-
-.card-icons {
-    height: 13px;
-    margin: 27px 5px 5px 5px;
 }
 
 .image-caption {

@@ -1,5 +1,5 @@
 .card-container {
-    margin: 30px;
+    margin: 30px 10px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -31,8 +31,16 @@ h3 {
     margin: 0 15px 15px 15px;
 
     z-index: 1;
-    resize: vertical;
     background-color: transparent;
+}
+
+.card-header {
+    display: flex;
+}
+
+.card-icons {
+    height: 13px;
+    margin: 27px 5px 5px 5px;
 }
 
 .popover {
@@ -44,6 +52,4 @@ h3 {
     position: fixed;
     top: 0;
     right: 0;
-    // bottom: 0;
-    // left: 0;
   }

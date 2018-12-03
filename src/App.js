@@ -5,6 +5,8 @@ import TitleCard from './component/TitleCard/TitleCard';
 import PreviousEntry from './component/PreviousEntry/PreviousEntry';
 import NewEntry from './component/NewEntry/NewEntry';
 import ImageSelector from './component/ImageSelector/ImageSelector';
+import Card from './component/Card/Card';
+
 // import Tags from './component/Tags/Tags';
 // import Card from './component/Card/Card';
 
@@ -45,17 +47,17 @@ class App extends Component {
     
     return (
         <div className="App">
-          <div className="sidebar">
-            <TitleCard addEntry={this.addEntry} />
-            <div className="entries-container">
+            <TitleCard className="title-card" addEntry={this.addEntry} />
+            <div className="entries-list">
               {this.state.previousEntries.length === 0 ? noPreviousEntriesMessage : previousMessagesList}
-              
             </div>
-          </div>
-          <div className="main-space">
-            <ImageSelector className="image-selector" /> 
-            <NewEntry className="new-entry" />
-          </div>
+            <ImageSelector className="image-selector"/>
+            <NewEntry className="content" />
+            <div className="card-list">
+              <Card className="card-list" title="Write down your prayer here..." height={275}/>
+              <Card className="card-list" title="Actions points for today" height={125}/>
+            </div>
+            
         </div>
     );
   } 

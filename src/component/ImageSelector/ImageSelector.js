@@ -9,6 +9,7 @@ import orange_blue_street_to_sky from '../../images/orange_blue_street_to_sky.pn
 import purple_nightsky from '../../images/purple_nightsky.png';
 import red_sunset from '../../images/red_sunset.png';
 import sunset_sky from '../../images/sunset_sky.jpeg';
+import brooklyn_bridge from '../../images/brooklyn_bridge.jpeg';
 import yellow_elephant from '../../images/yellow_elephant.png';
 
 class ImageSelector extends Component {
@@ -30,12 +31,13 @@ class ImageSelector extends Component {
             red_sunset, 
             sunset_sky,
             yellow_elephant, 
+            brooklyn_bridge,
         ];
 
         const number = Math.floor(Math.random() * (images_array.length));
         return (
             <div className="image-selector">
-                <img src={images_array[number]} alt="blue orange venice" />
+                <img src={images_array[number]} alt="background" />
                 <textarea className="image-caption" type="text" placeholder="One memorable thought for today..." />
             </div>
         );

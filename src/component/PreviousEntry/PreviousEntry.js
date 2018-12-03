@@ -66,4 +66,10 @@ PreviousEntry.propTypes = {
     numday: PropTypes.number.isRequired,
 }
 
-export default PreviousEntry;
+// const mapSateToProps = ({ data }) => {
+//     return {
+//         data
+//     };
+// };
+
+export default connect(null, { deleteEntry })(PreviousEntry);
