@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { deleteEntry } from '../../actions'
+// import { connect } from 'react-redux';
+// import { deleteEntry } from '../../actions'
 import './PreviousEntry.scss';
 
 import PropTypes from 'prop-types'; 
@@ -11,10 +11,7 @@ import deleteicon from '../../icons/deleteicon.png';
 
 class PreviousEntry extends Component { 
 
-    handleDeleteClick = deleteEntryId => {
-        const { deleteEntry } = this.props;
-        deleteEntry(deleteEntryId);
-    };
+    
 
     getNumDay() {
         return new Date().getDate();
@@ -39,7 +36,7 @@ class PreviousEntry extends Component {
     }
 
     render() {
-        const  { entryId, entry } = this.props;
+        // const  { entryId, entry } = this.props;
         return (
             <div className="previous-container">
                 <div className="date-section">   
@@ -47,13 +44,12 @@ class PreviousEntry extends Component {
                     <div className="numday">{ this.getNumDay() }</div>
                 </div>
                 <div className="content-section">
-                    <div className="entry-title">Test title</div> {/* entry.title */}
-                    <div className="entry-content-preview">Test content</div>
+                    <div className="entry-title">{ this.props.title }</div> {/* entry.title */}
+                    <div className="entry-content-preview">{ this.props.content }</div>
                 </div>
                 <div className="hover-menu-items">
                     <img className="menu-icon" src={share} alt="share" />
-                    <img className="menu-icon" src={deleteicon} alt="X" 
-                         onClick={() => this.handleDeleteClick(entryId)}/>
+                    <img className="menu-icon" src={deleteicon} alt="X" />
                 </div>
             </div>
         );
@@ -61,9 +57,8 @@ class PreviousEntry extends Component {
 }
 
 PreviousEntry.propTypes = {
-    month: PropTypes.string.isRequired,
-    weekday: PropTypes.string.isRequired,
-    numday: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired, 
+    content: PropTypes.string.isRequired,
 }
 
 // const mapSateToProps = ({ data }) => {
@@ -72,4 +67,5 @@ PreviousEntry.propTypes = {
 //     };
 // };
 
-export default connect(null, { deleteEntry })(PreviousEntry);
+// export default connect(null, { deleteEntry })(PreviousEntry);
+export default PreviousEntry;

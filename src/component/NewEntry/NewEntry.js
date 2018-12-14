@@ -9,6 +9,10 @@ class NewEntry extends Component {
     constructor(){
         super();
         this.state = {
+            title:'', 
+            reflectedPassages: '', 
+            content: '', 
+            save: false,
 
         };
     }

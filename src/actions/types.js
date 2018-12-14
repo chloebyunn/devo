@@ -1,2 +1,3 @@
-//jjust stores string constants for action types
-export const FETCH_ENTRIES = 'FETCH_ENTRIES';
+// //jjust stores string constants for action types
+// export const PREVIOUS_ENTRIES = 'PREVIOUS_ENTRIES';
+// // export const 

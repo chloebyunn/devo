@@ -67,12 +67,13 @@
 .entry-title {
     font-size: 18px;
     padding: 5px 0;
-
+    overflow: hidden;
 }
 
 .entry-content-preview {
     padding: 5px 0;
     font-size: 11px;
+    overflow: hidden;
 }
 
 .hover-menu-items {

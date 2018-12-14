@@ -1,20 +1,26 @@
-//entry point for our actions module
-import { entriesRef } from "../config/firebase";
-import { FETCH_ENTRIES } from "./types";
+// // //entry point for our actions module
+// // // import { entriesRef } from "./firebase";
+// // import { FETCH_ENTRIES } from "./types";
+// // import database from '../database';
 
-export const addEntry = newEntry => async dispatch => {
-  entriesRef.push().set(newEntry);
-};
+// import * as types from './types'
+// // import types from './types';
+// import database from '../database';
 
-export const deleteEntry = deleteEntryId => async dispatch => {
-  entriesRef.child(deleteEntryId).remove();
-};
 
-export const fetchEntries = () => async dispatch => {
-  entriesRef.on("value", snapshot => {
-    dispatch({
-      type: FETCH_ENTRIES,
-      payload: snapshot.val()
-    });
-  });
-};
+
+// export const getPreviousEntries = () => dispatch => {
+
+//     database.collection('entries').get().then((snapshot)=> {
+//         const previousEntries = [];
+//         snapshot.docs.forEach(doc => {
+//             const entry = doc.data();
+//             entry.id = doc.id;
+//             previousEntries.push(entry);
+//         });
+//         dispatch({
+//             type: types.PREVIOUS_ENTRIES,
+//             payload: previousEntries
+//         })
+//     });
+// }

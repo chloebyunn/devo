@@ -46,18 +46,14 @@ class Card extends Component {
 
         return (
             <div className="card-container" style={{backgroundColor:colours[number], height:this.props.height+"px"}}>
-                <div className="card-header">
-                    <h3>{this.props.title}</h3>
-                    <div>
-                        <img className="card-icons" src={colorwheel} alt="More colours" onClick={ this.handleOpenClick }/>
-                        {this.state.openColorPicker && 
-                        <div className="popover">
-                            <div className="cover" onClick={this.handleClose}/>
-                            <SwatchesPicker />
-                        </div>}
-                    </div>
-                    <img className="card-icons more-padding-right" src={deleteicon} alt="X" />
-                </div>
+                <h3 className="card-title">{this.props.title}</h3>
+                <img className="card-icons color-icon" src={colorwheel} alt="More colours" onClick={ this.handleOpenClick }/>
+                {this.state.openColorPicker && 
+                <div className="popover">
+                    <div className="cover" onClick={this.handleClose}/>
+                    <SwatchesPicker />
+                </div>}
+                <img className="delete-icon card-icons more-padding-right" src={deleteicon} alt="X" />
                 <textarea className="card-content" />
             </div>
         );

@@ -1,55 +1,58 @@
 .card-container {
     margin: 30px 10px;
     border-radius: 10px;
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
+    // position: relative;
+    display: grid;
+    grid-template-areas: "card-title color-icon delete-icon"
+                         "card-content card-content card-content";
+    grid-template-columns: 5fr 1fr 1fr;
+    grid-template-rows: 1fr 7fr;
+    height: 100%;
     position: relative;
+
+
+}
+
+.color-icon {
+    grid-area: color-icon;
+}
+
+.delete-icon {
+    grid-area: delete-icon;
 }
 
 .color-picker {
     position: absolute;
     top: 0;
     left: 0;
-    margin-top: 50px;
     z-index: 5;
 }
 
-h3 {
+.card-title {
+    grid-area: card-title;
     font-size: 12px;
     font-weight: lighter;
-    padding: 15px 0 5px 15px;
+    margin: 10px 0 0 15px;
+    align-self: center;
 }
 
 .card-content {
+    grid-area: card-content;
     font-weight: lighter;
     font-size: 12px;
     border: none;
-    flex: 1;
     outline: none;
     background: transparent;
-    width: 90%;
-    margin: 0 15px 15px 15px;
-
+    margin: 5px 10px 10px 10px;
     z-index: 1;
     background-color: transparent;
 }
 
-.card-header {
-    display: flex;
-}
-
 .card-icons {
     height: 13px;
-    margin: 27px 5px 5px 5px;
+    margin-top: 10px;
+    align-self: center;
+    justify-self: center;
 }
-
-.popover {
-    position: absolute;
-    z-index: 2;
-}
-
-.cover {
-    position: fixed;
-    top: 0;
-    right: 0;
-  }
