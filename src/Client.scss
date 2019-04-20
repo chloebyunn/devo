@@ -1,0 +1,53 @@
+// html, body {
+//     max-height: 100%;
+//     max-width: 100%;
+//     overflow-x: hidden;
+//   }
+  
+//   #root {
+//     height: 100%;
+//   }
+  
+  .client {
+    height: 100%;
+    display: grid;
+    grid-template-areas:    "title-card image-selector image-selector"
+                            "entries-list image-selector image-selector"
+                            "entries-list content card-list";
+    grid-template-columns: 2fr 5fr 1.5fr;
+    grid-template-rows: 1fr 1fr 5fr;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .title-card {
+    grid-area: title-card;
+  }
+  
+  .image-selector {
+    grid-area: image-selector;
+
+  }
+  
+  .entries-list {
+    grid-area: entries-list;
+    background-color: #f4f4f4;
+    overflow: scroll;
+    height: 100%;
+  }
+  
+  .content {
+    grid-area: content;
+  }
+  
+  .card-list{
+    grid-area: card-list;
+  }
+  
+  .no-entries-message {
+    padding: 10px 10px 10px calc(10%);
+    font-size: 12px;
+    margin-top: 70px;
+    color: #5f5f5f;
+  }
+  

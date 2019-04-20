@@ -1,22 +1,22 @@
 .image-selector {
-    clip-path: inset(0px 0px 0px 0px);
+    
+    background-size: cover;
+    background-repeat: none;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    background-color: #aaa;
-    background-size: 100%;
-    position: relative;
-    
-    .image-selector img {
-        width: 100%;
-    }
-}
 
+  }
+  .image-selector > img {
+    max-height: 100%;
+  }
+  
 h3 { 
     flex-grow: 1;
 }
 
 .image-caption {
+    
     position: absolute;
     color: #fff;
     font-size: 35px;

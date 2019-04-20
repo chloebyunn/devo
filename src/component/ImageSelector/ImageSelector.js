@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './ImageSelector.scss';
 
 import blue_orange_venice from '../../images/blue_orange_venice.png';
-import green_nature from '../../images/green_nature.png';
+// import green_nature from '../../images/green_nature.png';
 import grey_brown_street from '../../images/grey_brown_street.png';
 import grey_trees from '../../images/grey_trees.png';
 import orange_blue_street_to_sky from '../../images/orange_blue_street_to_sky.png';
@@ -16,14 +16,14 @@ import brown_green_village from '../../images/brown_green_village.jpg';
 class ImageSelector extends Component {
     constructor() {
         super();
-        this.state ={
+        this.state = {
             
         };
     }
 
     render(){
         const images_array = [
-            green_nature, 
+            // green_nature, 
             grey_brown_street, 
             blue_orange_venice, 
             grey_trees, 
@@ -38,8 +38,7 @@ class ImageSelector extends Component {
 
         const number = Math.floor(Math.random() * (images_array.length));
         return (
-            <div className="image-selector">
-                <img src={images_array[number]} alt="background" />
+            <div className="image-selector" style={{backgroundImage:`url(${images_array[number]})`}}>
                 <textarea className="image-caption" type="text" placeholder="One memorable thought for today..." />
             </div>
         );
