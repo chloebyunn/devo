@@ -1,15 +1,12 @@
-// html, body {
-//     max-height: 100%;
-//     max-width: 100%;
-//     overflow-x: hidden;
-//   }
+html, body {
+  height: 100%;
+}
   
 //   #root {
 //     height: 100%;
 //   }
   
   .client {
-    height: 100%;
     display: grid;
     grid-template-areas:    "title-card image-selector image-selector"
                             "entries-list image-selector image-selector"
@@ -50,4 +47,38 @@
     margin-top: 70px;
     color: #5f5f5f;
   }
-  
+
+// mobile from iPad portrait mode
+@media only screen and (max-width: 768px) {
+  .client {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .image-selector {
+    order: 0;
+    flex: 1;
+    max-height: 35%;
+  }
+
+  .content {
+    order: 1;
+    flex: 6;
+  }
+
+  .cards-list {
+    position: absolute;
+    top: 35%;
+    right: 0;
+  }
+
+  .menu-icon {
+    width: 28px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+
+  }
+
+}
