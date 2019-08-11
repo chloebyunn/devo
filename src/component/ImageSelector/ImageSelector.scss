@@ -1,6 +1,40 @@
 .image-selector {
-    flex: 4;
-    border: red 1px solid;
-    align-items: stretch;
-    max-height: 374px;
+    
+    background-size: cover;
+    background-repeat: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  .image-selector > img {
+    max-height: 100%;
+  }
+  
+h3 { 
+    flex-grow: 1;
+}
+
+.image-caption {
+    
+    position: absolute;
+    color: #fff;
+    font-size: 35px;
+    // text-align: left;
+    background-color: transparent;
+    border: none;
+    width: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    &::placeholder {
+        color: #ccc;
+        opacity: 1;
+        font-weight: normal;
+        text-align: center;
+    }
+
+    &:hover {
+        outline: none;
+    }
 }

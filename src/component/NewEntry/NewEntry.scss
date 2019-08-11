@@ -1,54 +1,54 @@
-.new-entry {  
-  flex: 7;
-  border: green 1px solid;
-  display: flex;
-  flex-direction: row;
+.save-button {
+  position: absolute;
+  border: none;
+  border-radius: 5px;
+  background-color: #418BF9;
+  padding: 10px 15px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #fff;
+  right: 10px;
+  top: 30px;
+}
 
+.save-img {
+  height: 14px;
+  padding: 0 10px;
+
+}
+
+.save-text {
+  margin: 0;
 }
 
 .devotional-area {
-  flex: 5;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  margin: 20px 10px 0 40px;
+}
+
+.title-and-entry {
   display: flex;
   flex-direction: column;
-  margin: 50px 0 0 40px;
 }
 
-.right-card-area {
-  border: orange 1px solid;
-  flex: 2;
-}
-
-.title {
-  font-size: 24px;
-  margin-bottom: 5px;
-
-  &:hover {
-    outline: none;
-  }
-}
-
-.reflected-passages {
-  font-size: 14px;
-  margin-bottom: 60px;
-
-  &:hover {
-    outline: none;
-  }
-}
-
-.content {
+.new-content {
+  border:none;
+  margin-top: 30px;
   font-size: 12px;
-
-  &:hover {
+  height: 100%;
+  width: 100%;
+  &:focus {
     outline: none;
   }
 }
 
 .title {
   border: none;
-  font-size: 22px;
+  font-size: 20px;
   text-decoration: underline;
-  padding: 30px 10px 5px 15px;
+  padding: 30px 10px 5px 0px;
   color: #454545;
 
   &:hover {
@@ -62,22 +62,8 @@
 
 .reflected-passages {
   border: none;
-  font-size: 15px;
-  padding: 5px 10px 10px 15px;
-
-  &:hover {
-    outline: none;
-  }
-  &:focus {
-    outline: none;
-  }
-}
-
-.content {
-  border: none;
-  font-size: 13px;
-  padding: 30px 10px 10px 15px;
-  height: 100%;
+  font-size: 14px;
+  padding: 5px 10px 10px 0;
 
   &:hover {
     outline: none;

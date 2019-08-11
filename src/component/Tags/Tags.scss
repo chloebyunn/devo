@@ -1,0 +1,20 @@
+.tag-container {
+    display: inline-flex;
+    background-color: #EF476F;
+    padding: 4px 4px 4px 6px;
+    border-radius: 5px;
+    align-items: center;
+
+}
+
+.tag-content {
+    margin: 0;
+    color: #fff;
+    font-weight: lighter;
+    font-size: 12px;
+}
+
+.tag-delete {
+    height: 9px;
+    padding: 3px 1px 3px 7px;
+}

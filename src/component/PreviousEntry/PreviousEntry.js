@@ -1,25 +1,33 @@
 import React, { Component } from 'react';
+// import { connect } from 'react-redux';
+// import { deleteEntry } from '../../actions'
 import './PreviousEntry.scss';
-import PropTypes from 'prop-types';
+import firebase from '../Firestore';
+import PropTypes from 'prop-types'; 
+
+import share from '../../icons/share.png';
+import deleteicon from '../../icons/deleteicon.png';
+
 
 class PreviousEntry extends Component { 
-    constructor() { 
-        super();
-        this.state = {
 
-        };
-    }
+    
 
     render() {
+        // const  { entryId, entry } = this.props;
         return (
             <div className="previous-container">
                 <div className="date-section">   
-                    <div className="day">{this.props.day}</div>
-                    <div className="dd">{this.props.dd}</div>
+                    <div className="weekday">{this.props.weekday}</div>
+                    <div className="numday">{this.props.day} </div>
                 </div>
                 <div className="content-section">
-                    <div className="entry-title">Test title</div>
-                    <div className="entry-content-preview">Test content</div>
+                    <div className="entry-title">{ this.props.title }</div> {/* entry.title */}
+                    <div className="entry-content-preview">{ this.props.content }</div>
+                </div>
+                <div className="hover-menu-items">
+                    <img className="menu-icon" src={share} alt="share" />
+                    <img className="menu-icon" src={deleteicon} alt="X" />
                 </div>
             </div>
         );
@@ -27,9 +35,19 @@ class PreviousEntry extends Component {
 }
 
 PreviousEntry.propTypes = {
+    title: PropTypes.string.isRequired, 
+    content: PropTypes.string.isRequired,
     month: PropTypes.string,
+    year: PropTypes.string,
     day: PropTypes.string.isRequired,
-    dd: PropTypes.number.isRequired,
+    weekday: PropTypes.string.isRequired,
 }
 
+// const mapSateToProps = ({ data }) => {
+//     return {
+//         data
+//     };
+// };
+
+// export default connect(null, { deleteEntry })(PreviousEntry);
 export default PreviousEntry;
