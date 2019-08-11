@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './NewEntry.scss';
 import Tags from '../../component/Tags/Tags';
 import firebase from '../Firestore';
-import save from '../../icons/save.png';
 
 class NewEntry extends Component {
 
@@ -68,33 +67,31 @@ class NewEntry extends Component {
     
     render() {
         return (
-            <div>
-                <form className="devotional-area" onSubmit={this.addEntry} id="save-entry">
-                    <input 
-                    type="text" 
-                    className="title" 
-                    placeholder="Title of your entry"
-                    onChange={this.updateTitle}
-                    value={this.state.title}
-                    />
-                    <input 
-                    type="text" 
-                    className="reflected-passages" 
-                    placeholder="Reflected passages"
-                    onChange={this.updatePassages}
-                    value={this.state.passages}> 
-                    </input>
-                    <Tags tagTitle="daily"/>
-                    <textarea 
-                    className="new-content" 
-                    placeholder="Start your entry here..."
-                    onChange={this.updateContent}
-                    value={this.state.content} />
-                    <button className="save-button" type="submit" form="save-entry"> 
-                      <img className="save-img" src={save} alt="V" />
-                      <p className="save-text">Save</p> 
-                    </button>
-                </form>
+            <div className="devotional-area">
+              <form className="title-and-entry" onSubmit={this.addEntry} id="save-entry">
+                <input 
+                type="text" 
+                className="title" 
+                placeholder="Title of your entry"
+                onChange={this.updateTitle}
+                value={this.state.title}
+                />
+                <input 
+                type="text" 
+                className="reflected-passages" 
+                placeholder="Reflected passages"
+                onChange={this.updatePassages}
+                value={this.state.passages}/> 
+              </form>
+              <Tags tagTitle="daily"/>
+              <textarea 
+              className="new-content" 
+              placeholder="Start your entry here..."
+              onChange={this.updateContent}
+              value={this.state.content} />
+              <button className="save-button" type="submit" form="save-entry"> 
+                <p className="save-text">Save</p> 
+              </button> 
             </div>
         );
     }

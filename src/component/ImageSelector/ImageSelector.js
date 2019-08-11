@@ -12,6 +12,8 @@ import sunset_sky from '../../images/sunset_sky.jpeg';
 import brooklyn_bridge from '../../images/brooklyn_bridge.jpeg';
 import yellow_elephant from '../../images/yellow_elephant.png';
 import brown_green_village from '../../images/brown_green_village.jpg';
+import mountain from '../../images/mountain.png';
+
 
 class ImageSelector extends Component {
     constructor() {
@@ -34,6 +36,7 @@ class ImageSelector extends Component {
             yellow_elephant, 
             brooklyn_bridge,
             brown_green_village,
+            mountain
         ];
 
         const number = Math.floor(Math.random() * (images_array.length));

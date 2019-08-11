@@ -66,8 +66,8 @@ export class Client extends Component {
         <ImageSelector className="image-selector"/>
         <NewEntry className="content" />
         <div className="cards-list">
-          <Card className="card-list" title="Write down your prayer here..." height={275}/>
-          <Card className="card-list" title="Actions points for today" height={125}/>
+          <Card className="card-list" title="Write down your prayer here" height={275} isMobile={isMobile}/>
+          <Card className="card-list" title="Actions points for today" height={125} isMobile={isMobile}/>
         </div>
       </div>
     )
