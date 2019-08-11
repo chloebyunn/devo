@@ -1,70 +1,95 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'; 
-import { SwatchesPicker } from 'react-color';
+import PropTypes from 'prop-types';
+import { TwitterPicker } from 'react-color';
 import './Card.scss';
 
 import colorwheel from '../../icons/colorwheel.png';
 import deleteicon from '../../icons/deleteicon.png';
-
+import minimize from '../../icons/minimize.png';
+import '../../Spacing.scss';
 
 
 class Card extends Component {
-    constructor(props) {
-        super(props);
-        this.state ={
-            background: '#fff',
-            openColorPicker: false,
-        };
-        this.handleOpenClick = this.handleOpenClick.bind(this);
-    }
+  constructor(props) {
+    super(props);
+    this.state ={
+      height: 0,
+      background: [
+        '#DDF7F0',
+        '#FFF3D9'
+      ][Math.floor(Math.random() * (2))],
+      openColorPicker: false,
+      hideCard: false,
+    };
+    this.handleOpenClick = this.handleOpenClick.bind(this);
+    this.handleHideClick = this.handleHideClick.bind(this);
+    this.handleColorChangeComplete = this.handleColorChangeComplete.bind(this);
+    this.handleSwatchHover = this.handleSwatchHover.bind(this);
+  }
 
     handleOpenClick() {
-        this.setState({
-            openColorPicker: !this.state.openColorPicker,
-        });
+      this.setState({
+        openColorPicker: !this.state.openColorPicker,
+      });
+    }
+
+    handleHideClick() {
+      this.setState({
+        height: 40,
+        hideCard: !this.state.hideCard
+      })
     }
 
     handleClose = () => {
-        this.setState({
-            openColorPicker: false,
-        })
+      this.setState({
+        openColorPicker: false,
+      })
     }
 
-    handleColorChange(color, event) {
-        this.setState({
-            background: color.hex,
-        });
+    handleColorChangeComplete(color, event) {
+      this.setState({ background: color.hex });
+      this.handleClose();
     };
 
-    render(){
-        const colours = [
-            '#DDF7F0',
-            '#FFF3D9'
-        ];
-        const number = Math.floor(Math.random() * (colours.length));
-
-
-        return (
-            <div className="card-container" style={{backgroundColor:colours[number], height:this.props.height+"px"}}>
-                <h3 className="card-title">{this.props.title}</h3>
-                <img className="card-icons color-icon" src={colorwheel} alt="More colours" onClick={ this.handleOpenClick }/>
-                {this.state.openColorPicker && 
-                <div className="popover">
-                    <div className="cover" onClick={this.handleClose}/>
-                    <SwatchesPicker />
-                </div>}
-                <img className="delete-icon card-icons more-padding-right" src={deleteicon} alt="X" />
-                <textarea className="card-content" />
-            </div>
-        );
+    handleSwatchHover(color, event) {
+      this.setState({ background: color.hex });
     }
+
+    render(){
+      return (
+      <div 
+        className="card-container" 
+        style={{backgroundColor:this.state.background, 
+                height: this.state.hideCard ? this.state.height+"px" : this.props.height+"px"}}>
+        <div className="card-header">
+          {<h3 className="card-title">{this.props.title}</h3>}
+          <div className="card-icons">
+            {!this.state.hideCard && <img className="color-icon icon" src={colorwheel} alt="More colours" onClick={ this.handleOpenClick }/>}
+            {this.state.openColorPicker &&
+            <div className="popover">
+              <div className="cover" onClick={this.handleClose}/>
+              <TwitterPicker
+                triangle="top-right"
+                width={200}
+                color={this.state.background}
+                onSwatchHover={this.handleSwatchHover}
+                onChangeComplete={ this.handleColorChangeComplete }
+
+              />
+            </div>}
+            <img className="minimize-icon icon" src={minimize} alt="Hide" onClick={ this.handleHideClick }/>
+            <img className="delete-icon icon" src={deleteicon} alt="Delete" />
+          </div>
+        </div>
+        {!this.state.hideCard && <textarea className="card-content" />}
+      </div>
+    );
+  }
 }
 Card.propTypes = {
-    title: PropTypes.string.isRequired,
-    height: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  height: PropTypes.number.isRequired,
+  isMobile: PropTypes.string.isRequired,
 }
 
 export default Card;
-
-
-
