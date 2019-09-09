@@ -1,83 +1,47 @@
 .previous-container {
-    // max-width: 420px;
-    min-height: 100px;
-    max-height: 100px;
-    border: #E5E5E5 1px solid;
-    display: flex;
-    flex-direction: row;
+  // max-width: 420px;
+  min-height: 100px;
+  max-height: 80px;
+  border-bottom: #E5E5E5 0.5px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 30px;
 
-    &:hover {
-        background-color: #EFFFFB;
-        border-left: #06D6A0 6px solid;
-        
-        .weekday {
-            font-weight: bold;
-        }
-
-        .numday {
-            font-weight: bold;
-        }
-
-        .hover-menu-items {
-            opacity: 1;
-            display: flex;
-            align-items: center;
-            margin-right: 10px;
-        }
-
-        .menu-icon {
-            height: 22px;
-            margin: 10px 15px 10px 10px;
-        }
+  &:active {
+    border-left: RGB(65,139,249) 4px solid;
+    cursor: pointer;
+    .entry-title {
+      font-weight: 550;
+      color: RGB(65,139,249);
     }
+  }
+
+  &:hover {
+    background-color: rgba(65,139,249, 0.1);
+    cursor: pointer;
+  }
 }
 
-.date-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 5px 5px 5px 8px;
-    width: 85px;
+.middle-section, .tags-section {
+  display: flex;
+  flex-direction: row;
+  font-size: 13px;
 }
 
-.content-section {
-    flex: 4;
-    margin-top: 5px;
-    padding: 5px 5px 5px 0px;
-}
-
-.month {
-    font-size: 16px;
-}
-
-.weekday {
-    font-size: 16px;
-
-   
+.month, .weekday, .entry-content-preview {
+  margin-right: 3px;
 }
 
 .numday {
-    margin-top: 5px;
-    font-size: 35px;
-
-   
-}
-
-.entry-title {
-    font-size: 18px;
-    padding: 5px 0;
-    overflow: hidden;
+  margin-right: 8px;
 }
 
 .entry-content-preview {
-    padding: 5px 0;
-    font-size: 11px;
-    overflow: hidden;
+  color: #949494;
 }
 
-.hover-menu-items {
-    opacity: 0;
-    
+.entry-title {
+  font-size: 16px;
+  padding-bottom: 5px;
 }
-

@@ -7,6 +7,7 @@ import colorwheel from '../../icons/colorwheel.png';
 import deleteicon from '../../icons/deleteicon.png';
 import minimize from '../../icons/minimize.png';
 import '../../Spacing.scss';
+import { isAbsolute } from 'path';
 
 
 class Card extends Component {
@@ -33,11 +34,19 @@ class Card extends Component {
       });
     }
 
-    handleHideClick() {
+    handleHideClick(isMobile) {
       this.setState({
         height: 40,
         hideCard: !this.state.hideCard
       })
+
+      if (isMobile) {
+        const hideToRight = {
+          position: "absolute",
+          
+
+        }
+      }
     }
 
     handleClose = () => {
@@ -89,7 +98,7 @@ class Card extends Component {
 Card.propTypes = {
   title: PropTypes.string.isRequired,
   height: PropTypes.number.isRequired,
-  isMobile: PropTypes.string.isRequired,
+  isMobile: PropTypes.bool.isRequired,
 }
 
 export default Card;

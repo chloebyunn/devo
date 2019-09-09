@@ -1,53 +1,43 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-// import { deleteEntry } from '../../actions'
 import './PreviousEntry.scss';
-import firebase from '../Firestore';
 import PropTypes from 'prop-types'; 
-
-import share from '../../icons/share.png';
-import deleteicon from '../../icons/deleteicon.png';
-
 
 class PreviousEntry extends Component { 
 
-    
+  selectedEntry = () => {
+    console.log('clicked');
+    console.log('this entires id', this.props.uid)
+  }
+  
+  render() {
+    const month = this.props.month === "June" || this.props.month === "September" ? this.props.month.slice(0, 4) : this.props.month.slice(0, 3);
+    const weekday = this.props.weekday === "Tuesday" || this.props.weekday === "Thursday" ? this.props.weekday.slice(0, 4) : this.props.weekday.slice(0, 3)
+    const content = this.props.content.slice(0, 30) + " ...";
 
-    render() {
-        // const  { entryId, entry } = this.props;
-        return (
-            <div className="previous-container">
-                <div className="date-section">   
-                    <div className="weekday">{this.props.weekday}</div>
-                    <div className="numday">{this.props.day} </div>
-                </div>
-                <div className="content-section">
-                    <div className="entry-title">{ this.props.title }</div> {/* entry.title */}
-                    <div className="entry-content-preview">{ this.props.content }</div>
-                </div>
-                <div className="hover-menu-items">
-                    <img className="menu-icon" src={share} alt="share" />
-                    <img className="menu-icon" src={deleteicon} alt="X" />
-                </div>
-            </div>
-        );
-    }
+    return (
+      <div className="previous-container" onClick={this.selectedEntry}>
+        <div className="entry-title">{ this.props.title }</div> {/* entry.title */}
+        <div className="middle-section">   
+          <div className="month">{month}</div>
+          <div className="weekday">{weekday}</div>
+          <div className="numday">{this.props.day} </div>
+          <div className="entry-content-preview">{ this.props.content !=="" ? content : ""}</div>
+        </div>
+        <div className="tags-section">
+        </div>
+      </div>
+    );
+  }
 }
 
 PreviousEntry.propTypes = {
-    title: PropTypes.string.isRequired, 
-    content: PropTypes.string.isRequired,
-    month: PropTypes.string,
-    year: PropTypes.string,
-    day: PropTypes.string.isRequired,
-    weekday: PropTypes.string.isRequired,
+  title: PropTypes.string, 
+  content: PropTypes.string,
+  month: PropTypes.string,
+  year: PropTypes.number,
+  day: PropTypes.number,
+  weekday: PropTypes.string,
+  uid: PropTypes.string,
 }
 
-// const mapSateToProps = ({ data }) => {
-//     return {
-//         data
-//     };
-// };
-
-// export default connect(null, { deleteEntry })(PreviousEntry);
 export default PreviousEntry;
