@@ -9,7 +9,6 @@ import FirebaseApp from './component/FirebaseApp';
 import menu from './icons/menu.png';
 
 export class Client extends Component {
-  
   constructor(props) {
     super(props);
     this.state = { 
@@ -22,11 +21,12 @@ export class Client extends Component {
       day: 0, 
       weekday: '',
       year: 0, 
+      DocID: '', 
       entriesList:[],
-      currentUID: '',
     };
-    // this.addEntry = this.addEntry.bind(this);
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+
+    this.updateSelectedDocID = this.updateSelectedDocID.bind(this)
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this)
   }
   
   componentDidMount() {
@@ -43,25 +43,13 @@ export class Client extends Component {
       weekday: dayNames[todaysDate.getDay()],
       year: todaysDate.getFullYear(), 
     })
-    const db = FirebaseApp.db;
+  
+    this.getEntries()
 
-    //get collection
-    db.collection("entry").get().then((snapshot) => {
-      snapshot.docs.forEach(doc => {
-        let items = doc.data();
-        /* Update the components state with query result */
-        this.setState({ 
-          entriesList : [{items},...this.state.entriesList],
-          currentUID: doc.id
-        }) 
-        console.log('this,satte.currentUID', this.state.currentUID)
-
-        this.formatPrevEntry(items)
-      })
-    })
-    .catch(function(error) {
-      console.log("Error getting documents!!!: ", error);
-    });
+    if (this.state.DocID !== "") {
+      this.getCurrentEntry()
+    }
+    
   }
 
   componentWillUnmount() {
@@ -72,10 +60,6 @@ export class Client extends Component {
     this.setState({ width: window.innerWidth, height: window.innerHeight });
   }
 
-  // previousEntry = e => {
-  //   e.preventDefault();
-  // }
-
   formatPrevEntry = (element) => {
     return (
       <PreviousEntry 
@@ -85,13 +69,57 @@ export class Client extends Component {
         year={element.Year}
         day={element.Day}
         weekday={element.Weekday}
-        uid={this.state.currentUID}
-      />
+        DocID={element.DocID}
+        />
     )
+  }
+
+  getEntries() {
+    const db = FirebaseApp.db;
+
+    //get collection
+    db.collection("entry").get().then((snapshot) => {
+
+      snapshot.docs.forEach(doc => {
+        let items = doc.data();
+
+        /* Update the components state with query result */
+        this.setState({ 
+          entriesList : [{items},...this.state.entriesList],
+          DocID: doc.id,
+        }) 
+        this.formatPrevEntry(items)
+      })
+    })
+    .catch(function(error) {
+      console.log("Error getting documents!!!: ", error);
+    });
   }
 
   editEntry = e => {
     e.preventDefault();
+  }
+
+  updateSelectedDocID(docID) {
+    this.setState({
+      DocID: docID
+    })
+
+    const db = FirebaseApp.db
+
+    db.collection("entry").doc(docID).get().then((doc) => {
+      this.setState({
+        title: doc.data().EntryTitle, 
+        passages: doc.data().EntryPassages,
+        content: doc.data().EntryContent,
+        month: doc.data().Month,
+        day: doc.data().Day, 
+        weekday: doc.data().Weekday,
+        year: doc.data().Year, 
+      })
+    }).catch(function(error) {
+      console.log("Error getting document:", error)
+    })
   }
 
   addEntry = e => {
@@ -107,32 +135,36 @@ export class Client extends Component {
       Weekday: this.state.weekday , 
       Year: this.state.year,
       CreatedAt: new Date().getTime(),
-      DocID: this.state.currentUID,
     }).then(
       (docRef) => {
-      console.warn('docRef.iid', docRef.id);
-      
-      this.setState({
-        entriesList: [
-          {
-            items: {
-              EntryPassages: this.state.passages,
-              EntryContent: this.state.content, 
-              EntryTitle: this.state.title,
-              Month: this.state.month, 
-              Day: this.state.day, 
-              Weekday: this.state.weekday , 
-              Year: this.state.year,
-              CreatedAt: new Date().getTime()
-            }
-          }, 
-          ...this.state.entriesList
+        this.setState({
+          DocID: docRef.id,
+          entriesList: [
+            {
+              items: {
+                EntryPassages: this.state.passages,
+                EntryContent: this.state.content, 
+                EntryTitle: this.state.title,
+                Month: this.state.month, 
+                Day: this.state.day, 
+                Weekday: this.state.weekday , 
+                Year: this.state.year,
+                CreatedAt: new Date().getTime(),
+                DocID: docRef.id,
+              }
+            }, 
+            ...this.state.entriesList
           ],
-          currentUID: docRef.id
         })
-      })
-    ;
+
+        var updateEntry = db.collection('entry').doc(docRef.id);
+        updateEntry.update({
+          DocID: docRef.id
+        })
+      }
+    );
   };
+  
 
   render() {
     const isMobile = this.state.width <= 768;
@@ -142,6 +174,7 @@ export class Client extends Component {
       // to get a value that is either negative, positive, or zero.
       return new Date(b.items.CreatedAt) - new Date(a.items.CreatedAt);
     });
+
     const prevEntries = this.state.entriesList.map((element) => {
       return (
         <PreviousEntry 
@@ -151,7 +184,8 @@ export class Client extends Component {
           year={element.items.Year}
           day={element.items.Day}
           weekday={element.items.Weekday}
-          uid={this.state.currentUID}
+          DocID={element.items.DocID}
+          updateDocID={this.updateSelectedDocID}
         />
       )
     })
@@ -174,7 +208,6 @@ export class Client extends Component {
           day={this.state.day}
           weekday={this.state.weekday}
           year={this.state.year}
-          uid={this.state.currentUID}
         />
         <div className="cards-list">
           <Card className="card-list" title="Write down your prayer here" height={275} isMobile={isMobile}/>

@@ -15,15 +15,9 @@ class NewEntry extends Component {
 
     db.collection("entry").where("uid", "==", this.props.uid).get()
     .then((snapshot => {
-        // console.log('snapshot!', snapshot)
       })
     )
   }
-  /**
-   * Values should be read from each doc from firestore. 
-   * 
-   * How to determine which is clicked? From previous entry, the UID must be passed.
-   */
 
   render() {
     return (
@@ -34,20 +28,20 @@ class NewEntry extends Component {
           className="title" 
           placeholder="Title of your entry"
           onChange={this.updateTitle}
-          value={this.state.title} />
+          value={this.props.title} />
           <input 
           type="text" 
           name="reflected-passages"
           className="reflected-passages" 
           placeholder="Reflected passages"
           onChange={this.updatePassages}
-          value={this.state.passages} /> 
+          value={this.props.passages} /> 
           <Tags tagTitle="daily" />
           <textarea 
           className="new-content" 
           placeholder="Start your entry here..."
           onChange={this.updateContent}
-          value={this.state.content} />
+          value={this.props.content} />
           <button className="save-button" type="submit" form="save-entry"> 
             <p className="save-text"> Save </p> 
           </button> 
