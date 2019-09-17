@@ -12,6 +12,8 @@ export class Client extends Component {
   constructor(props) {
     super(props);
     this.state = { 
+      updateImageNumber: false,
+      imageNumber: 10000,
       width: 0, 
       height: 0,
       title: '', 
@@ -25,12 +27,12 @@ export class Client extends Component {
       entriesList:[],
     };
 
+    this.setImageNumber = this.setImageNumber.bind(this)
     this.updateSelectedDocID = this.updateSelectedDocID.bind(this)
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this)
   }
   
   componentDidMount() {
-    this.updateWindowDimensions();
 
     window.addEventListener('resize', this.updateWindowDimensions);
     
@@ -49,7 +51,8 @@ export class Client extends Component {
     if (this.state.DocID !== "") {
       this.getCurrentEntry()
     }
-    
+
+    this.updateWindowDimensions();
   }
 
   componentWillUnmount() {
@@ -123,13 +126,18 @@ export class Client extends Component {
   }
 
   addEntry = e => {
-    e.preventDefault();
-    const db = FirebaseApp.db;
+    e.preventDefault()
+
+    this.setState({
+      updateImageNumber: true,
+    })
+
+    const db = FirebaseApp.db
 
     db.collection('entry').add({
-      EntryPassages: this.state.passages,
-      EntryContent: this.state.content, 
-      EntryTitle: this.state.title,
+      EntryPassages: '',
+      EntryContent: '', 
+      EntryTitle: '',
       Month: this.state.month, 
       Day: this.state.day, 
       Weekday: this.state.weekday , 
@@ -142,9 +150,9 @@ export class Client extends Component {
           entriesList: [
             {
               items: {
-                EntryPassages: this.state.passages,
-                EntryContent: this.state.content, 
-                EntryTitle: this.state.title,
+                EntryPassages: '',
+                EntryContent: '', 
+                EntryTitle: '',
                 Month: this.state.month, 
                 Day: this.state.day, 
                 Weekday: this.state.weekday , 
@@ -159,12 +167,19 @@ export class Client extends Component {
 
         var updateEntry = db.collection('entry').doc(docRef.id);
         updateEntry.update({
-          DocID: docRef.id
+          DocID: docRef.id,
+          ImageNumber: this.state.imageNumber
         })
       }
     );
   };
-  
+
+  setImageNumber(number) {
+    this.setState({
+      imageNumber: number, 
+    })
+
+  }
 
   render() {
     const isMobile = this.state.width <= 768;
@@ -193,12 +208,12 @@ export class Client extends Component {
     return (
       <div className="client">
         {isMobile && <img alt="menu" src={menu} className="menu-icon"/>}
-        {!isMobile && <TitleCard className="title-card" addEntry={this.addEntry} />}
+        {!isMobile && <TitleCard className="title-card" addEntry={this.addEntry} />} 
         {!isMobile && 
         <div className="entries-list">
           {prevEntries}
         </div>}
-        <ImageSelector className="image-selector"/>
+        <ImageSelector className="image-selector" getImageNumber={this.setImageNumber} DocID={this.state.DocID} updateImageNumber={this.state.updateImageNumber}/>
         <NewEntry 
           className="content" 
           title={this.state.title}

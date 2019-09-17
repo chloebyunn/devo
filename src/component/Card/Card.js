@@ -43,8 +43,6 @@ class Card extends Component {
       if (isMobile) {
         const hideToRight = {
           position: "absolute",
-          
-
         }
       }
     }
@@ -81,9 +79,9 @@ class Card extends Component {
                 triangle="top-right"
                 width={200}
                 color={this.state.background}
+                colors={['#f0f8ff', '#B1F8F2', '#fff3d9', '#99F7AB', '#CDC1FF', '#FFA8A8', '#EEE0CB', '#D0B8AC', '#8EB9F9', '#eee']}
                 onSwatchHover={this.handleSwatchHover}
                 onChangeComplete={ this.handleColorChangeComplete }
-
               />
             </div>}
             <img className="minimize-icon icon" src={minimize} alt="Hide" onClick={ this.handleHideClick }/>

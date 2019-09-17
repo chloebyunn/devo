@@ -7,16 +7,18 @@ import FirebaseApp from '../FirebaseApp';
 class NewEntry extends Component {
   constructor(){
     super();
-    this.state = {};
+    this.state = {
+      // passages
+    };
   }
 
-  getEntry() {
+  updatePassages() {
     const db = FirebaseApp.db;
+    var updateEntry = db.collection('entry').doc(this.props.uid);
 
-    db.collection("entry").where("uid", "==", this.props.uid).get()
-    .then((snapshot => {
-      })
-    )
+    updateEntry.update({
+      EntryPassages: this.state.passages
+    })
   }
 
   render() {
@@ -35,7 +37,7 @@ class NewEntry extends Component {
           className="reflected-passages" 
           placeholder="Reflected passages"
           onChange={this.updatePassages}
-          value={this.props.passages} /> 
+          value={this.state.passages} /> 
           <Tags tagTitle="daily" />
           <textarea 
           className="new-content" 
